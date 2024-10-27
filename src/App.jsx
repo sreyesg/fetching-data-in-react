@@ -12,14 +12,14 @@ const App = () => {
   const fetchDefaultData = async (starshipName) => {
     
     const data = await fetchStarships.show(starshipName)
-    
-    const newStartship = {
+
+    const newStarship = {
       name: data.results[0].name,
       starshipClass: data.results[0].starship_class,
       starshipModel: data.results[0].model,
       starshipManufacturer: data.results[0].manufacturer
     }
-    setstarships([...starships, newStartship])
+    setstarships([...starships, newStarship])
   }
   return (
     <>
@@ -27,7 +27,7 @@ const App = () => {
       <StarshipSearch
       fetchDefaultData={fetchDefaultData}
       />
-    
+      
     </>
   );
 }
