@@ -1,14 +1,15 @@
 const BASE_URL='http://swapi.dev/api/starships/'
 
-const index = async (id) => {
+const show = async (starshipName) => {
     try {
-        
-        const res = await fetch(BASE_URL)
+        const queryString = `?search=${starshipName}`
+        const res = await fetch(BASE_URL + queryString)
         const data = await res.json()
         console.log(data)
+        return data
     } catch (error) {
         console.log(error)
     }
 }
-export {index}
-index()
+export { show }
+// console.log(index('CR90 corvette'))

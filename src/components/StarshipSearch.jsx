@@ -1,21 +1,26 @@
 import { useState } from "react"
+
 // display form
 // capture user input and update local state search
     // handle onChange
 // lift state to app and pass it to starshipList
-const searchForm = () => {
+const searchForm = (props) => {
 
-    const [search, setSearch] = useState('')
-
+    const [searchString, setSearchString] = useState('')
+    
+    const handleSubmit = () => {
+        event.preventDefault()
+        props.fetchDefaultData(searchString)
+    }
     return (
-        <form >
+        <form onSubmit={handleSubmit} >
             <label htmlFor="search"></label>
             <input 
             type="text" 
             name="search" 
             id="search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            value={searchString}
+            onChange={(e) => setSearchString(e.target.value)}
             />
             <button type="submit">Search</button>
 
