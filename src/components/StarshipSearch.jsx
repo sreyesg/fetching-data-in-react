@@ -8,7 +8,7 @@ const searchForm = (props) => {
 
     const [searchString, setSearchString] = useState('')
     
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
         event.preventDefault()
         props.fetchDefaultData(searchString)
     }

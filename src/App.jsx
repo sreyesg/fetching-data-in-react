@@ -10,10 +10,16 @@ const App = () => {
   // const [search, setSearch] = useState('')
 
   const fetchDefaultData = async (starshipName) => {
-    console.log(starshipName, 'FROM APP')
-    const data = await fetchStarships.show(starshipName)
-    console.log(data, "json RES")
     
+    const data = await fetchStarships.show(starshipName)
+    
+    const newStartship = {
+      name: data.results[0].name,
+      starshipClass: data.results[0].starship_class,
+      starshipModel: data.results[0].model,
+      starshipManufacturer: data.results[0].manufacturer
+    }
+    setstarships([...starships, newStartship])
   }
   return (
     <>
