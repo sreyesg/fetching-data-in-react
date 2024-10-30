@@ -1,4 +1,4 @@
-// import StarshipCard from './StarshipCard'
+import StarshipCard from './StarshipCard'
 
 const StarshipList = ({starships}) => {
     // const {starships} = props
@@ -6,13 +6,14 @@ const StarshipList = ({starships}) => {
     if(!starships.length){
         return(
             <>
-            <h1>Loading</h1>
+            <h2>Loading</h2>
             </>
         )   
     }
     return (
         <>
         <p>Starship is real</p>
+        <StarshipCard starships={starships}/>
         </>
     )
 }
