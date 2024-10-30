@@ -2,6 +2,7 @@ import StarshipSearch from './components/StarshipSearch'
 import StarshipList from './components/StarshipList'
 import { useState, useEffect } from 'react';
 import * as fetchStarships from './services/starshipServices'
+import './app.css'
 
 
 const App = () => {

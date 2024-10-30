@@ -12,7 +12,7 @@ const StarshipList = ({starships}) => {
     }
     return (
         <>
-        <p>Starship is real</p>
+        
         <StarshipCard starships={starships}/>
         </>
     )

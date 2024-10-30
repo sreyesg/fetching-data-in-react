@@ -7,7 +7,7 @@ const StarshipCard = ({starships}) => {
             return(
                 <article>
                         <h3>{starship.name}</h3>
-                        <p>Class: {starship.class_list}</p>
+                        <p>Class: {starship.starship_class}</p>
                         <p>Manufacturer: {starship.manufacturer}</p>
                         <p>Model: {starship.model}</p>
                 </article>
