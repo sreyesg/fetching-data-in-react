@@ -10,7 +10,7 @@ const searchForm = (props) => {
     
     const handleSubmit = (event) => {
         event.preventDefault()
-        props.fetchDefaultData(searchString)
+        props.fetchData(searchString)
     }
     return (
         <form onSubmit={handleSubmit} >

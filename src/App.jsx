@@ -1,33 +1,48 @@
 import StarshipSearch from './components/StarshipSearch'
-// import StarshipList from './components/StarshipList'
-import { useState } from 'react';
+import StarshipList from './components/StarshipList'
+import { useState, useEffect } from 'react';
 import * as fetchStarships from './services/starshipServices'
-// import { useEffect } from 'react';
+
 
 const App = () => {
 
-  const [starships, setstarships] = useState([])
-  // const [search, setSearch] = useState('')
+  const [starships, setStarships] = useState([])
 
-  const fetchDefaultData = async (starshipName) => {
+  useEffect(() => {
+    
+    const fetchDefaultData = async() =>{
+      const defaultData = await fetchStarships.index()
+      console.log(defaultData.results)
+      setStarships(defaultData.results)
+    }
+    fetchDefaultData()
+  }, [])
+
+  const fetchData = async (starshipName) => {
     
     const data = await fetchStarships.show(starshipName)
-
     const newStarship = {
       name: data.results[0].name,
       starshipClass: data.results[0].starship_class,
       starshipModel: data.results[0].model,
       starshipManufacturer: data.results[0].manufacturer
     }
-    setstarships([...starships, newStarship])
+    setStarships([...starships, newStarship])
   }
+  console.log(starships, 'NEW STARSHIPT STATE');
   return (
     <>
-      <h1>StarWars Starships</h1>
+      <h1>Star Wars Starships</h1>
+      <div className="form">
       <StarshipSearch
-      fetchDefaultData={fetchDefaultData}
+      fetchData={fetchData}
       />
-      
+      </div>
+      <section>
+
+      <StarshipList starships={starships} />
+
+      </section>
     </>
   );
 }

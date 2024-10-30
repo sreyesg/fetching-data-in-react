@@ -2,8 +2,9 @@ const BASE_URL='http://swapi.dev/api/starships/'
 
 const index = async() => {
     try {
-        res = await fetch(BASE_URL)
-        data = res.json()
+        const res = await fetch(BASE_URL)
+        const data = res.json()
+        // console.log(data,"from Services")
         return data
         
     } catch (error) {
@@ -15,7 +16,6 @@ const show = async (starshipName) => {
         const queryString = `?search=${starshipName}`
         const res = await fetch(BASE_URL + queryString)
         const data = await res.json()
-        console.log(data)
         return data
     } catch (error) {
         console.log(error)
